@@ -1,21 +1,59 @@
-
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Warp.ai Dashboard</title>
-  <link rel="stylesheet" href="style.css" />
-  <script src="https://cdn.ethers.io/lib/ethers-5.7.umd.min.js"></script>
-</head>
-<body>
-  <button id="connectWallet">🔗 Connect Wallet</button>
-  <div id="xpDisplay">0 XP 🔥</div>
-  <div class="gas-progress" id="gasProgress"></div>
-  <div id="gasValue">0 Gwei</div>
-  <button id="buyPremium" class="premium-btn">Köp Premium (0.009 ETH)</button>
-  <script type="module" src="app.js"></script>
-  <script type="module" src="gas.js"></script>
-  <script type="module" src="lang.js"></script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=375, initial-scale=1.0, maximum-scale=1.0" />
+    <title>WarpAI – Onchain Activity</title>
+    <meta property="fc:frame" content="vNext" />
+    <meta property="fc:frame:image" content="https://warpai-activity.vercel.app/api/og" />
+    <meta property="fc:frame:button:1" content="Check Gas ⛽" />
+
+    <link rel="stylesheet" href="/src/css/styles.css" />
+    <script src="https://cdn.jsdelivr.net/npm/ethers@5.7.2/dist/ethers.umd.min.js"></script>
+  </head>
+
+  <body>
+    <div class="container">
+      <header>
+        <div class="logo">🛸 WarpAI</div>
+        <p class="subtitle">Onchain Activity Tracker</p>
+        <button id="connectWallet">Connect Wallet</button>
+        <div id="walletInfo" class="wallet-info" style="display:none;">
+          <span id="walletAddress"></span>
+        </div>
+      </header>
+
+      <section class="card">
+        <h2>⛽ Gas</h2>
+        <div class="gas-bar" id="gasBar"></div>
+        <p id="gasValue">– Gwei</p>
+      </section>
+
+      <section class="card">
+        <h2>✨ XP</h2>
+        <div class="xp-bar-container">
+          <div class="xp-bar" id="xpProgress"></div>
+        </div>
+        <p id="xpDisplay">0 XP</p>
+        <button id="claimXP">Claim XP</button>
+      </section>
+
+      <section class="card">
+        <h2>📜 Activity</h2>
+        <ul id="activityList">
+          <li>Loading...</li>
+        </ul>
+      </section>
+    </div>
+
+    <nav class="tab-bar">
+      <button class="tab-btn active" data-tab="home">🏠</button>
+      <button class="tab-btn" data-tab="track">📈</button>
+      <button class="tab-btn" data-tab="rewards">🎁</button>
+      <button class="tab-btn" data-tab="stats">📊</button>
+      <button class="tab-btn" data-tab="profile">👤</button>
+    </nav>
+
+    <script src="/src/js/app.js" type="module"></script>
+  </body>
 </html>
